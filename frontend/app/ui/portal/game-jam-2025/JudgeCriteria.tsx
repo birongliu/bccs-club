@@ -38,10 +38,12 @@ export default function JudgeCriteria() {
           className="py-3 grid-cols-2 md:grid-cols-3 gap-3"
         >
           {criterias.map((criteria) => {
-            return <div className="py-2" key={criteria.topic}>
+            return (
+              <div className="py-2" key={criteria.topic}>
                 <h1 className="font-semibold">{criteria.topic}</h1>
-                <p className="text-sm">{criteria.description}</p>
-            </div>
+                <p className="text-sm text-gray-600">{criteria.description}</p>
+              </div>
+            );
           })}
         </ul>
       </div>
