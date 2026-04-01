@@ -3,17 +3,16 @@ import { BsGithub } from "react-icons/bs";
 import { BsGlobe2 } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import Image from 'next/image';
-// import avatarPic from '../../../images/team/club-coordinators/avatar.jpg'
-import ayeshaZakerPic from "../../../images/team/club-coordinators/ayesha-zaker.jpg";
-import nicoleShmerkinPic from "../../../images/team/club-coordinators/nicole-shmerkin.jpg";
-import axelmejiaPic from "../../../images/team/club-coordinators/axel-mejia.jpg";
-import andrewLiPic from "../../../images/team/club-coordinators/andrew-li.jpg";
-import birongliuPic from "../../../images/team/club-coordinators/birong-liu.jpg"
+import fazliPic from '../../../images/team/club-coordinators/fazli-altun.jpeg'
+import haseebPic from '../../../images/team/club-coordinators/haseeb-malik.jpg'
+import oleksiiPic from '../../../images/team/club-coordinators/oleksii-sudarin.jpeg'
+import vannaPic from '../../../images/team/club-coordinators/vanna-fang.jpeg'
 
 interface Member {
   name: string;
   role: string;
   photo: any;
+  objectPosition?: string; // Optional field for image cropping
   linkedinUrl?: string; // Optional field
   githubUrl?: string; // Optional field
   personalWebsiteUrl?: string; // Optional field
@@ -22,42 +21,26 @@ interface Member {
 
 const members: Member[] = [
   {
-    name: 'Nicole Shmerkin',
-    role: 'Event Coordinator',
-    photo: nicoleShmerkinPic,
-    linkedinUrl: 'https://www.linkedin.com/in/nicole-shmerkin-36ba2a2a9/',
-    instagramUrl: 'https://www.instagram.com/nvcole5/'
+    name: 'Fazli Altun',
+    role: 'Club Coordinator',
+    photo: fazliPic,
   },
   {
-    name: 'Ayesha Zaker',
-    role: 'Full Stack Developer',
-    photo: ayeshaZakerPic,
-    linkedinUrl: 'https://www.linkedin.com/in/ayesha-z-4321a318b',
-    githubUrl: 'https://github.com/AZcodes',
+    name: 'Haseeb Malik',
+    role: 'Club Coordinator',
+    photo: haseebPic,
+    objectPosition: 'center 30%',
   },
   {
-    name: 'Axel Mejia',
-    role: 'Backend Developer',
-    photo: axelmejiaPic,
-    linkedinUrl: 'https://www.linkedin.com/in/axel-mejia-04a69725a/',
-    githubUrl: 'https://github.com/Ax3lMejia',
-    instagramUrl: 'https://www.instagram.com/4xl_m3/'
+    name: 'Oleksii Sudarin',
+    role: 'Club Coordinator',
+    photo: oleksiiPic,
   },
   {
-    name: 'Andrew Li',
-    role: 'Backend Developer',
-    photo: andrewLiPic,
-    linkedinUrl: 'https://www.linkedin.com/in/andrew-li-611a34278/',
-    githubUrl: 'https://github.com/AndrewL05',
-    instagramUrl: 'https://www.instagram.com/andrew.liiiiiii'
-  },
-  {
-    name: "Bi Rong Liu",
-    role: "Frontend Developer",
-    photo: birongliuPic,
-    linkedinUrl: "https://www.linkedin.com/in/birongliu",
-    githubUrl: "https://github.com/birongliu",
-    personalWebsiteUrl: "https://birongliu.dev",
+    name: 'Vanna Fang',
+    role: 'Club Coordinator',
+    photo: vannaPic,
+    objectPosition: 'center 15%',
   },
 ];
 
@@ -79,7 +62,8 @@ export default function ClubCoordinatorsSection() {
               <Image
                 alt={member.name}
                 src={member.photo}
-                className="mx-auto h-56 w-56 rounded-full"
+                className="mx-auto h-40 w-40 rounded-full object-cover"
+                style={member.objectPosition ? { objectPosition: member.objectPosition } : undefined}
                 placeholder="blur"
               />
               <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{member.name}</h3>
